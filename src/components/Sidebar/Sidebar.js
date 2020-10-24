@@ -2,6 +2,7 @@ import React from "react"
 import CardCompany from './cardCompany/CardCompany'
 import { InputText } from 'primereact/inputtext';
 import classes from './Sidebar.module.css';
+import Tabs from './Tabs/tabs'
 
 
 const Sidebar = (props) =>{
@@ -12,6 +13,7 @@ const Sidebar = (props) =>{
                 <InputText placeholder="Search" />
             </span>
             <CardCompany/>
+            <Tabs/>
         </div>
     )
 }

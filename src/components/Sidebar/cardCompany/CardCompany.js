@@ -8,7 +8,18 @@ import {load} from "@2gis/mapgl";
 const CardCompany = () => {
     return(
         <div className={classes.cardComp}>
-            ori
+            <div className={classes.actionCards}>
+                <div className={classes.actionCard}>
+                    
+                </div>  
+                <div className={classes.actionCard}>
+                          
+                </div>
+                <div className={classes.actionCard}>
+                          
+                </div>
+            </div>
+            
         </div>
     )
 };
