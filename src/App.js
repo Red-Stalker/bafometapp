@@ -10,8 +10,10 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import ModalContainer from "./components/Modals/ModalContainer";
 import {connect} from "react-redux";
+import {MapContext} from "./components/Map/MapProvider";
 
 const App = (props) => {
+    const [mapInstance] = React.useContext(MapContext);
     const [openSideBar, setOpenSideBar] = useState(false)
     const [openModal, setOpenModal] = useState(false)
 
@@ -45,6 +47,14 @@ const App = (props) => {
           <div className={classes.map}>
               <MapGL />
           </div>
+
+          <div onClick={()=>{
+              if (!navigator.geolocation) {
+                  alert("Нету координат")
+              } else {
+                  navigator.geolocation.getCurrentPosition((pos)=> alert(`${pos.coords.longitude} ${pos.coords.latitude}`), mapInstance.error);
+              }
+          }} className={classes.coordsMe}>Координаты мои</div>
 
           {openModal &&
             <ModalContainer closeModal={closeModal}/>
