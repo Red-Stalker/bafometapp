@@ -6,7 +6,7 @@ import timeIco from "./bx_bx-time.svg"
 const Search = (props) =>{
     const [showContent, setShowContent] = useState(false)
     return(
-        <div>
+        <div className={classes.inner}>
             <div className={classes.search} onFocus={()=>{setShowContent(true)}} onBlur={()=>{setShowContent(false)}}>
                 <span className={`p-input-icon-left ${classes.searchSpan}`}>
                 <i className="pi pi-search" />

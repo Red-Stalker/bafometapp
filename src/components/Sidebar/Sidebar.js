@@ -5,15 +5,19 @@ import classes from './Sidebar.module.css';
 import Tabs from './Tabs/Tabs'
 import Search from "./Search/Search";
 import FindShop from "./FindShop/FindShop";
+import InfoShop from "./InfoShop/InfoShop";
 
 
 const Sidebar = (props) =>{
     return(
         <div className={classes.Sidebar}>
             <Search/>
-            {/*<CardCompany/>
-            <Tabs/>*/}
-            <FindShop/>
+            <div className={classes.content}>
+                <FindShop/>
+                <InfoShop/>
+            </div>
+
+
         </div>
     )
 }

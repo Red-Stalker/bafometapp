@@ -10,6 +10,7 @@ const FindShop = (props) =>{
             <div className={classes.items}>
                 <ShopItem/>
                 <ShopItem/>
+                <ShopItem/>
             </div>
         </div>
     )

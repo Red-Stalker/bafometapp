@@ -50,7 +50,8 @@
     z-index: 1000;
     width: auto;
     height: 100vh;
-    background-color: #fff;
+    overflow: auto;
+    background: #F2F2F2;
     transition: all 0.3s ease;
 }
 

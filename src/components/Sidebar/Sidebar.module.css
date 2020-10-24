@@ -2,3 +2,17 @@
     padding: 0 15px;
     padding-top: 40px;
 }
+
+.content{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+}
+
+.content div{
+    margin-right: 5px;
+}
+
+.content div:last-child{
+    margin-right: 0;
+}
