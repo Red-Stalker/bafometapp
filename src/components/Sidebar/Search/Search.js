@@ -13,23 +13,21 @@ const Search = (props) =>{
                 <InputText placeholder="Поиск" />
             </span>
             </div>
-            {showContent &&
-                <>
-                    <div className={classes.content}>
-                        <div className={classes.item}>
-                            <img src={timeIco} alt="history"/>
-                            <span>asdasd</span>
-                        </div>
-                        <div className={classes.item}>
-                            <img src={timeIco} alt="history"/>
-                            <span>asdasd</span>
-                        </div>
+            <div className={`${classes.contentInner} ${showContent? classes.active : ''}`}>
+                <div className={classes.content}>
+                    <div className={classes.item}>
+                        <img src={timeIco} alt="history"/>
+                        <span>asdasd</span>
                     </div>
-                    <div className={classes.clear}>
-                        <span>Очистить историю</span>
+                    <div className={classes.item}>
+                        <img src={timeIco} alt="history"/>
+                        <span>asdasd</span>
                     </div>
-                </>
-            }
+                </div>
+                <div className={classes.clear}>
+                    <span>Очистить историю</span>
+                </div>
+            </div>
         </div>
     )
 }
