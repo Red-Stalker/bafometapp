@@ -23,16 +23,14 @@ const App = (props) => {
 
   return (
       <div className={classes.appInner}>
-          {openSideBar &&
-              <div className={classes.sidebarInner}>
-                  <div className={classes.content}>
-                      <Sidebar/>
-                      <div className={classes.btnSidebarClose} onClick={()=>{
-                          setOpenSideBar(false)
-                      }}><i className="pi pi-times"></i></div>
-                  </div>
+          <div className={`${classes.sidebarInner} ${openSideBar?classes.active:''}`}>
+              <div className={classes.content}>
+                  <Sidebar/>
+                  <div className={classes.btnSidebarClose} onClick={()=>{
+                      setOpenSideBar(false)
+                  }}><i className="pi pi-times"></i></div>
               </div>
-          }
+          </div>
 
           {!openSideBar &&
               <div onClick={()=>{

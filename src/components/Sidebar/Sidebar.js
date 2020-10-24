@@ -3,15 +3,13 @@ import CardCompany from './cardCompany/CardCompany'
 import { InputText } from 'primereact/inputtext';
 import classes from './Sidebar.module.css';
 import Tabs from './Tabs/Tabs'
+import Search from "./Search/Search";
 
 
 const Sidebar = (props) =>{
     return(
         <div className={classes.Sidebar}>
-            <span className="p-input-icon-left">
-                <i className="pi pi-search" />
-                <InputText placeholder="Search" />
-            </span>
+            <Search/>
             <CardCompany/>
             <Tabs/>
         </div>
