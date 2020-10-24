@@ -45,6 +45,10 @@ const MapGL = () =>{
                 position: 'topRight',
             });
 
+            const trafficControl = new mapglAPI.TrafficControl(map, {
+                position: 'topRight',
+            });
+
             const status = control.getContainer().querySelector('#status');
             let circle;
 
