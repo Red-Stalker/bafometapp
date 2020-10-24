@@ -43,12 +43,12 @@
 }
 
 .sidebarInner{
-    margin: 0 0 0 -330px;
+    margin: 0 0 0 calc(0px - 100%);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    width: 330px;
+    width: auto;
     height: 100vh;
     background-color: #fff;
     transition: all 0.3s ease;
