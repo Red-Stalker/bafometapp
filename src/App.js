@@ -54,6 +54,16 @@ const App = (props) => {
           <div onClick={()=>{setOpenModal(true)}} className={classes.login}><i className="pi pi-arrow-circle-right"></i><span>Войти</span></div>
           }
 
+          {props.isAuth &&
+          <div onClick={()=>{setOpenModal(true)}} className={classes.privateOffice}>
+              <span>Личный кабинет</span>
+              <div className={classes.dropDown}>
+                  <span>Избранное</span>
+                  <span>Выход</span>
+              </div>
+          </div>
+          }
+
           <div className={classes.map}>
               <MapGL />
           </div>
