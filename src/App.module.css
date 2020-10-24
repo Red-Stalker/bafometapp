@@ -1,3 +1,30 @@
+@font-face {
+    font-family: 'Gilroy-Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./fonts/Gilroy/Gilroy-Bold.ttf');
+}
+@font-face {
+    font-family: 'Gilroy-SemiBold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('./fonts/Gilroy/Gilroy-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./fonts/Gilroy/Gilroy-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./fonts/Roboto/Roboto-Regular.ttf');
+}
+
 .appInner{
     position: relative;
 }
@@ -88,4 +115,15 @@
 .login span{
     font-size: 17px;
     margin-left: 5px;
+}
+
+.coordsMe{
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    z-index: 2000;
+    cursor: pointer;
 }
