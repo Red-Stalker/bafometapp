@@ -19,14 +19,14 @@ const App = (props) => {
                       <Sidebar/>
                       <div className={classes.btnSidebarClose} onClick={()=>{
                           setOpenSideBar(false)
-                      }}>Close</div>
+                      }}><i className="pi pi-times"></i></div>
                   </div>
               </div>
           }
           {!openSideBar &&
               <div onClick={()=>{
                   setOpenSideBar(true)
-              }} className={classes.btnSidebarOpen}>Open</div>
+              }} className={classes.btnSidebarOpen}><i className="pi pi-bars"></i></div>
           }
           <div className={classes.map}>
               <MapGL />
