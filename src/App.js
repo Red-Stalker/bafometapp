@@ -4,6 +4,10 @@ import Map from "./components/Map/MapContainer";
 import MapGL from "./components/Map/MapContainer";
 import MoveMapButton from "./components/Map/MoveMapButton";
 import Sidebar from "./components/Sidebar/Sidebar";
+import CardCompany from "./components/Sidebar/cardCompany/CardCompany";
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 const App = (props) => {
     const [openSideBar, setOpenSideBar] = useState(false)
