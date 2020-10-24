@@ -8,9 +8,17 @@ import CardCompany from "./components/Sidebar/cardCompany/CardCompany";
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import ModalContainer from "./components/Modals/ModalContainer";
+import {connect} from "react-redux";
 
 const App = (props) => {
     const [openSideBar, setOpenSideBar] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
+
+    const closeModal = () =>{
+        setOpenModal(false)
+    }
+
   return (
       <div className={classes.appInner}>
           {openSideBar &&
@@ -23,17 +31,30 @@ const App = (props) => {
                   </div>
               </div>
           }
+
           {!openSideBar &&
               <div onClick={()=>{
                   setOpenSideBar(true)
               }} className={classes.btnSidebarOpen}><i className="pi pi-bars"></i></div>
           }
-          <div className={classes.login}><i className="pi pi-arrow-circle-right"></i><span>Войти</span></div>
+
+          {!props.isAuth &&
+          <div onClick={()=>{setOpenModal(true)}} className={classes.login}><i className="pi pi-arrow-circle-right"></i><span>Войти</span></div>
+          }
+
           <div className={classes.map}>
               <MapGL />
           </div>
+
+          {openModal &&
+            <ModalContainer closeModal={closeModal}/>
+          }
       </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) =>({
+    isAuth: state.auth.isAuth
+})
+
+export default connect(mapStateToProps,{})(App);
