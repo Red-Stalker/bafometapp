@@ -16,3 +16,31 @@
 .content div:last-child{
     margin-right: 0;
 }
+
+.filters{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row nowrap;
+    margin-bottom: 15px;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.filtersIcoAndText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+.fitersImg{
+    width: 24px;
+    height: 17px;
+    margin-right: 14px;
+}
+
+.fitlersText{
+    font-size: 18px;
+    color: #0F30DE;
+}
