@@ -28,6 +28,7 @@ const App = (props) => {
                   setOpenSideBar(true)
               }} className={classes.btnSidebarOpen}><i className="pi pi-bars"></i></div>
           }
+          <div className={classes.login}><i className="pi pi-arrow-circle-right"></i><span>Войти</span></div>
           <div className={classes.map}>
               <MapGL />
           </div>
