@@ -9,17 +9,21 @@ const App = (props) => {
     const [openSideBar, setOpenSideBar] = useState(false)
   return (
       <div className={classes.appInner}>
-          <div className={classes.sidebarInner}>
-              {openSideBar &&
-              <div className={classes.content}>
-                  <Sidebar/>
-                  Drag the map and then click the button <MoveMapButton/>
+          {openSideBar &&
+              <div className={classes.sidebarInner}>
+                  <div className={classes.content}>
+                      <Sidebar/>
+                      <div className={classes.btnSidebarClose} onClick={()=>{
+                          setOpenSideBar(false)
+                      }}>Close</div>
+                  </div>
               </div>
-              }
+          }
+          {!openSideBar &&
               <div onClick={()=>{
-                  setOpenSideBar(!openSideBar)
-              }} className={classes.btnSidebar}>Open Sidebar</div>
-          </div>
+                  setOpenSideBar(true)
+              }} className={classes.btnSidebarOpen}>Open</div>
+          }
           <div className={classes.map}>
               <MapGL />
           </div>
