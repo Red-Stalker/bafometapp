@@ -6,6 +6,8 @@ import {ReactComponent as Photo} from "./photo.svg";
 import {ReactComponent as Taxi} from "./taxi.svg";
 import {ReactComponent as Call} from "./call.svg";
 import {ReactComponent as Net} from "./net.svg";
+import sber from "./sber.png";
+import spas from "./spas.png";
 
 const Tabs = (props) => {
     
@@ -24,6 +26,8 @@ const Tabs = (props) => {
                                 </div>
                                 <div className={classes.net}>
                                 <Net/>www.radugapark.ru
+
+                                
                                 </div>
                             </div>
                             <div className={classes.taxiBlock}>
@@ -36,13 +40,50 @@ const Tabs = (props) => {
                                     Такси будет стоить всего <span>115₽</span> <span className={classes.textTaxi}>240₽</span>
                                 </h3>
                             </div>
-                            <div className={classes.gallery}>
-                                <div className={classes.photo}></div>
-                                <div className={classes.photo}></div>
-                                <div className={classes.photo}></div>
-                                <div className={classes.photo}></div>
-                                <div className={classes.photo} style={{padding:4}}><Photo/></div>
+                            <div style={{marginTop:20}}>
+                                <div>
+                                <span className={classes.titleBlock}>
+                                    Сервисы
+                                </span>
+                                <div className={classes.paddingBlock}>
+                                    <span>
+                                        Можно заказать через <img src={sber} alt="sber"/>
+                                    </span>
+                                    <span>
+                                        Партнер программы <img src={spas} alt="spasibo"/>
+                                        
+                                    </span>
+                                </div>
+                                </div>
+                                <div>
+                                <span className={classes.titleBlock}>
+                                    Меры предосторожности
+                                </span>
+                                <div className={classes.paddingBlock}>
+                                    <span>
+                                        Сотрудники в масках и перчатках 
+                                    </span>
+                                    <span>
+                                        Есть антисептики
+                                    </span>
+                                    <span>
+                                    Ограничение по количеству посетителей 
+                                    </span>
+                                    <span>
+                                    Сотрудники в масках и перчатках 
+                                    </span>
+                                </div>
+                                </div>
+                                <div>
+                                <span className={classes.titleBlock}>
+                                    Загруженность
+                                </span>
+                                <div className={classes.paddingBlock}>
+                                    
+                                </div>
+                                </div>
                             </div>
+                            
                         </TabPanel>
                         <TabPanel header="Отзывы">
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
