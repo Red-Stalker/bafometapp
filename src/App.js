@@ -4,7 +4,7 @@ import Map from "./components/MapContainer";
 
 const App = (props) => {
   return (
-    <div>
+    <div style={{ width: '100%', height: 400 }}>
        <Map/>
     </div>
   );
