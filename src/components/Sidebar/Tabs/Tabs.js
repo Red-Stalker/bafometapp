@@ -2,6 +2,10 @@ import { TabView, TabPanel } from 'primereact/tabview';
 import React, {useContext, useEffect, useState} from "react";
 import classes from "./Tabs.module.css";
 import { Button } from 'primereact/button';
+import {ReactComponent as Photo} from "./photo.svg";
+import {ReactComponent as Taxi} from "./taxi.svg";
+import {ReactComponent as Call} from "./call.svg";
+import {ReactComponent as Net} from "./net.svg";
 
 const Tabs = (props) => {
     
@@ -11,8 +15,33 @@ const Tabs = (props) => {
                 <div className="card">
                     <TabView>
                         <TabPanel header="Информация">
+                            <div className={classes.address}>
+                            ​Репина, 94 Юго-Западный, Верх-Исетский район, Екатеринбург, 620043 2 этажа
+                            </div>
+                            <div className={classes.netAndNumber}>
+                                <div className={classes.number}>
+                                <Call/>+7 (343) 3‒111‒888
+                                </div>
+                                <div className={classes.net}>
+                                <Net/>www.radugapark.ru
+                                </div>
+                            </div>
+                            <div className={classes.taxiBlock}>
+                            <Taxi style={{float: "right",width:70}}/>
+                                <h5>
+                                    Это место особенное                                  
+                                </h5>
+
+                                <h3>
+                                    Такси будет стоить всего <span>115₽</span> <span className={classes.textTaxi}>240₽</span>
+                                </h3>
+                            </div>
                             <div className={classes.gallery}>
-                                
+                                <div className={classes.photo}></div>
+                                <div className={classes.photo}></div>
+                                <div className={classes.photo}></div>
+                                <div className={classes.photo}></div>
+                                <div className={classes.photo} style={{padding:4}}><Photo/></div>
                             </div>
                         </TabPanel>
                         <TabPanel header="Отзывы">

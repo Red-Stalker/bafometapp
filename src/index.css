@@ -43,3 +43,7 @@ code {
   border-radius: 3px;
 }
 
+.p-tabview .p-tabview-panels{
+  padding: 0 !important;
+  padding-top: 0.5rem !important;
+}
