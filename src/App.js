@@ -15,6 +15,7 @@ import {MapContext} from "./components/Map/MapProvider";
 const App = (props) => {
     const [mapInstance] = React.useContext(MapContext);
     const [openSideBar, setOpenSideBar] = useState(false)
+    const [hideSideBar, setHideSideBar] = useState(false)
     const [openModal, setOpenModal] = useState(false)
 
     const closeModal = () =>{
@@ -23,12 +24,23 @@ const App = (props) => {
 
   return (
       <div className={classes.appInner}>
-          <div className={`${classes.sidebarInner} ${openSideBar?classes.active:''}`}>
+          <div className={`${classes.sidebarInner} ${openSideBar?classes.active:''} ${hideSideBar?classes.hide:''}`}>
               <div className={classes.content}>
                   <Sidebar/>
                   <div className={classes.btnSidebarClose} onClick={()=>{
                       setOpenSideBar(false)
+                      setHideSideBar(false)
                   }}><i className="pi pi-times"></i></div>
+                  <div className={`${classes.btnSidebarHide} ${hideSideBar ? classes.active: ''}`} onClick={()=>{
+                      if(hideSideBar){
+                          setHideSideBar(false)
+                      }else{
+                          setHideSideBar(true)
+                      }
+                  }}><i className="pi pi-angle-down"></i></div>
+                  {/*<div className={classes.btnSidebarClose} onClick={()=>{
+                      setHideSideBar(true)
+                  }}><i className="pi pi-angle-up"></i></div>*/}
               </div>
           </div>
 
