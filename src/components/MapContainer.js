@@ -37,9 +37,9 @@ const MapGL = () =>{
         let map;
         load().then((mapglAPI) => {
             map = new mapglAPI.Map('map-container', {
-                center: [55.31878, 25.23584],
+                center: [60.6030454184265,56.83826863808909],
                 zoom: 13,
-                key: "b066ef4f-8a6d-4b72-8f1c-2eba6a809a1f"
+                key: "b066ef4f-8a6d-4b72-8f1c-2eba6a809a1f",
             });
             setMapInstance(map);
         });
