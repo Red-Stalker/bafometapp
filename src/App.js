@@ -1,17 +1,26 @@
 import classes from "./App.module.css"
-import React from "react";
-import Map from "./components/MapContainer";
-import MapGL from "./components/MapContainer";
-import MoveMapButton from "./components/MoveMapButton";
+import React, {useState} from "react";
+import Map from "./components/Map/MapContainer";
+import MapGL from "./components/Map/MapContainer";
+import MoveMapButton from "./components/Map/MoveMapButton";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = (props) => {
+    const [openSideBar, setOpenSideBar] = useState(false)
   return (
-      <div>
-          <div style={{ padding: '0 0 6px' }}>
-              Drag the map and then click the button <MoveMapButton/>
+      <div className={classes.appInner}>
+          <div className={classes.sidebarInner}>
+              {openSideBar &&
+              <div className={classes.content}>
+                  <Sidebar/>
+                  Drag the map and then click the button <MoveMapButton/>
+              </div>
+              }
+              <div onClick={()=>{
+                  setOpenSideBar(!openSideBar)
+              }} className={classes.btnSidebar}>Open Sidebar</div>
           </div>
-          <br />
-          <div style={{ width: '100%', height: 250 }}>
+          <div className={classes.map}>
               <MapGL />
           </div>
       </div>

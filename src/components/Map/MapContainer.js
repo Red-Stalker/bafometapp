@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import classes from "./MapContainer.module.css";
 import {load} from "@2gis/mapgl";
 import {MapContext} from "./MapProvider";
+import "./MapContainer.css"
 
 const MapWrapper = React.memo(
     () => {
@@ -41,7 +42,7 @@ const MapGL = () =>{
             });
 
             const control = new mapglAPI.Control(map, controlContent, {
-                position: 'topLeft',
+                position: 'topRight',
             });
 
             const status = control.getContainer().querySelector('#status');
