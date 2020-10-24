@@ -6,7 +6,7 @@ import {ReactComponent as LogoShare} from "./share.svg"
 import {ReactComponent as LogoGo} from "./go.svg";
 import {ReactComponent as LogoStarFull} from "./star1.svg";
 import {ReactComponent as LogoStar} from "./star2.svg";
-
+import {ReactComponent as LogoTime} from "./time.svg";
 
 
 
@@ -17,18 +17,34 @@ const CardCompany = () => {
             <div className={classes.actionCards}>
                 <span className={classes.actionCard}>
                     <LogoSave/>
-                    Сохранить
+                    <span>Сохранить</span>
                 </span>
                 <span className={classes.actionCard}>
                     <LogoShare/>
-                    Отправить
+                    <span>Отправить</span>
                 </span>
                 <span className={classes.actionCard}>
                     <LogoGo/>
-                    Проехать
+                    <span>Проехать</span>
                 </span>
             </div>
-            
+            <div className={classes.Stars}>
+                <LogoStarFull/>
+                <LogoStarFull/>
+                <LogoStarFull/>
+                <LogoStarFull/>
+                <LogoStar/>
+            </div>
+            <h2>
+                Радуга парк
+            </h2>
+            <h5>
+                Торгово - разлекательный центр
+            </h5>
+
+            <div className={classes.operatinMode}>
+                <span>Ежедневно с 10:00 до 22:00 <LogoTime/><br/>Открыто</span>
+            </div>
         </div>
     )
 };
