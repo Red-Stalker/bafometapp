@@ -1,9 +1,11 @@
-import './App.css';
+import classes from "./App.module.css"
+import React from "react";
+import Map from "./components/MapContainer";
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-       никита пидор
+    <div>
+       <Map/>
     </div>
   );
 }
