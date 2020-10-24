@@ -7,6 +7,7 @@ import {ReactComponent as LogoGo} from "./go.svg";
 import {ReactComponent as LogoStarFull} from "./star1.svg";
 import {ReactComponent as LogoStar} from "./star2.svg";
 import {ReactComponent as LogoTime} from "./time.svg";
+import {ReactComponent as LogoRuble} from "./ruble.svg";
 
 
 
@@ -39,7 +40,7 @@ const CardCompany = () => {
                 Радуга парк
             </h2>
             <h5>
-                Торгово - разлекательный центр
+                Торгово - разлекательный центр <LogoRuble/> <LogoRuble/>
             </h5>
 
             <div className={classes.operatinMode}>
