@@ -25,3 +25,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link{
+  padding: 0.5rem !important;
+  margin-top: 20px !important;
+}

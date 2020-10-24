@@ -9,4 +9,18 @@
 
 .actionCards{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 10px;
+}
+
+.actionCards svg{
+    vertical-align: middle;
+}
+
+.actionCard{
+    margin-left: 5px;
 }
