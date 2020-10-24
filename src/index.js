@@ -6,12 +6,15 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./redux/redux-store";
+import {MapProvider} from "./components/MapProvider";
 
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>
             <React.StrictMode>
-                <App />
+                <MapProvider>
+                    <App />
+                </MapProvider>
             </React.StrictMode>
         </Provider>
     </BrowserRouter>,
