@@ -1,7 +1,10 @@
 @media (max-width: 767px) {
   .content{
       display: block !important;
+      width: 400px; 
+      background-color: #fff;
   }
+  
 }
 
 .hide{
@@ -11,7 +14,6 @@
 .Sidebar{
     padding: 0 15px;
     padding-top: 40px;
-    
 }
 
 .content{
