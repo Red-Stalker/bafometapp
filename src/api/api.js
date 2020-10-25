@@ -1,11 +1,52 @@
 import * as axios from "axios";
 
+const instanceWithToken = () => axios.create({
+    withCredentials: true,
+    baseURL: "http://bafomet.wellbe.club/api/",
+    headers: {
+        "Authorization": "Bearer "+localStorage.getItem("token")
+    }
+});
 
 const instance = () => axios.create({
     withCredentials: true,
-    baseURL: "https://catalog.api.2gis.com",
+    baseURL: "http://bafomet.wellbe.club/api/",
 });
 
+export const authAPI = {
+    me() {
+        return instanceWithToken().get(`v1/users/auth/me/`);
+    },
+    login(email,password){
+        return instance().post(`v1/users/auth/token/`, {email, password});
+    },
+    refreshToken(refresh = localStorage.getItem("refreshToken")){
+        return instance().post(`v1/users/auth/token/refresh/`,{refresh})
+    }/*,
+    logout(){
+        return instanceWithToken().post(`auth/logout/`);
+    }*/
+}
+
+export const registrationAPI ={
+    validateEmail(email){
+        return instance().post(`v1/users/auth/registrate/send_email/`, {email})
+    },
+    validateOTP(email, otp){
+        return instance().post(`v1/users/auth/registrate/confirm_email/`, {email, otp})
+    },
+    registration(email, name, password){
+        return instance().post(`v1/users/auth/registrate/me/`, {email, name, password})
+    }
+}
+
+export const gisAPI ={
+    getShopsAround(){
+        return instance().post(`v1/places/place/`, {})
+    }
+}
+
+/*
 export const ipAPI = {
     getUserIp(){
         return axios.get("https://api.ipify.org/?format=json")
@@ -40,4 +81,4 @@ export const placesAPI = {
             }
         })
     }
-}
+}*/

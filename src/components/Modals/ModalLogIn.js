@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import classes from "./ModalLogIn.module.css"
 import {useFormik} from "formik";
 import {InputText} from "primereact/inputtext";
@@ -7,15 +7,15 @@ import {Checkbox} from "primereact/checkbox";
 import {Button} from "primereact/button";
 import showIco from "./icons/show.svg"
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {getAuthUserData, login} from "../../redux/auth-reducer";
 
 const ModalLogIn = (props) =>{
     const [disabledBtn, setDisabledBtn] = useState(true)
     const [showPassword, setShowPassword] = useState(false)
     /*useEffect(()=>{
-        if(!formik.errors && formik.values.email.length !== 0 && formik.values.password.length !== 0){
-            setDisabledBtn(false)
-        }
-    },[formik.values])*/
+        props.getAuthUserData()
+    },[])*/
     const validate = values =>{
         const errors = {}
         if (!values.email) {
@@ -44,7 +44,7 @@ const ModalLogIn = (props) =>{
         validate,
         validateOnBlur: true,
         onSubmit: values => {
-            console.log(values)
+            props.login(values.email, values.password)
         }
     })
 
@@ -95,4 +95,9 @@ const ModalLogIn = (props) =>{
     )
 }
 
-export default ModalLogIn;
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth,
+    authorization: state.auth.authorization,
+})
+
+export default connect(mapStateToProps, {getAuthUserData, login})(ModalLogIn);

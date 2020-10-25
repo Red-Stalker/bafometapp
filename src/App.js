@@ -1,5 +1,5 @@
 import classes from "./App.module.css"
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Map from "./components/Map/MapContainer";
 import MapGL from "./components/Map/MapContainer";
 import MoveMapButton from "./components/Map/MoveMapButton";
@@ -11,12 +11,17 @@ import 'primeicons/primeicons.css';
 import ModalContainer from "./components/Modals/ModalContainer";
 import {connect} from "react-redux";
 import {MapContext} from "./components/Map/MapProvider";
+import {getAuthUserData} from "./redux/auth-reducer";
 
 const App = (props) => {
     const [mapInstance] = React.useContext(MapContext);
     const [openSideBar, setOpenSideBar] = useState(false)
     const [hideSideBar, setHideSideBar] = useState(false)
     const [openModal, setOpenModal] = useState(false)
+
+    useEffect(()=>{
+        props.getAuthUserData()
+    },[])
 
     const closeModal = () =>{
         setOpenModal(false)
@@ -87,4 +92,4 @@ const mapStateToProps = (state) =>({
     isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps,{})(App);
+export default connect(mapStateToProps,{getAuthUserData})(App);

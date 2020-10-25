@@ -3,6 +3,15 @@
     max-width: 420px;
 }
 
+.info{
+    margin-bottom: 10px;
+}
+
+.column{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .titleAuth{
     font-family: Gilroy-SemiBold;
     font-size: 30px;
