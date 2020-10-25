@@ -4,6 +4,7 @@ import classes from "./Search.module.css"
 import timeIco from "./bx_bx-time.svg"
 import {gisAPI} from "../../../api/api";
 import {setCoords} from "../../../redux/map-reducer";
+import {connect} from "react-redux";
 
 const Search = (props) =>{
     const [showContent, setShowContent] = useState(false)
@@ -19,17 +20,22 @@ const Search = (props) =>{
                 <span className={`p-input-icon-left ${classes.searchSpan}`}>
                 <i className="pi pi-search" />
                 <InputText
+                    value={props.filters.q}
                     onKeyPress={(e)=>{
                         if(e.key === "Enter"){
                             setShowContent(false)
                             props.setOnlySearch(false)
                             props.setCoordsFunc()
                             console.log(props.coords)
-                            props.getShops(e.target.value)
+                            props.getShops({
+                                ...props.filters,
+                                q: e.target.value
+                            })
                         }
                     }}
                     onClick={()=>{setShowContent(true)}}
                     placeholder="Поиск"
+
                 />
             </span>
             </div>
@@ -41,7 +47,10 @@ const Search = (props) =>{
                                 onClick={()=>{
                                     setShowContent(false)
                                     props.setOnlySearch(false)
-                                    props.getShops(p)
+                                    props.getShops({
+                                        ...props.filters,
+                                        q: p
+                                    })
                                 }}
                                 className={classes.item}
                             >
@@ -58,4 +67,5 @@ const Search = (props) =>{
         </div>
     )
 }
-export default Search;
+
+export default  Search;

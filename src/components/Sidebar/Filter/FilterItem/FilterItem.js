@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import classes from "./FilterItem.module.css";
 import { Slider } from 'primereact/slider';
+import {connect} from "react-redux";
+import {Button} from "primereact/button";
 
 const FilterItem = (props) =>{
-    const [value4, setValue4] = useState([20,80]);
+    const [distance, setDistance] = useState([2,props.filters.distance]);
+    const [openNow, setOpenNow] = useState(props.filters.nowOpen);
+    const [openAllTime, setOpenAllTime] = useState(props.filters.allTimeOpen);
     return(
         <>
         <div>
@@ -11,8 +15,8 @@ const FilterItem = (props) =>{
                 Расстояние до меня
             </span>
             <div style={{marginBottom:10, paddingTop:10}}>
-            <Slider value={value4} onChange={(e) => setValue4(e.value)} range className={classes.rangeSlider}/>
-            <div className={classes.titleBlockRange}> Расстояние: [{value4[0]*100} м, {value4[1]*100} м]</div>
+            <Slider value={distance} onChange={(e) => setDistance(e.value)} range className={classes.rangeSlider}/>
+            <div className={classes.titleBlockRange}> Расстояние: [{distance[0]*100} м, {distance[1]*100} м]</div>
             </div>
         </div>
         <div>
@@ -20,18 +24,37 @@ const FilterItem = (props) =>{
                 Время работы
             </span>
             <div className={classes.paddingBlock}>
-                <span>
+                <span
+                    className={props.filters.nowOpen?classes.active:''}
+                    onClick={()=>{
+                        props.getShops({
+                            ...props.filters,
+                            nowOpen: !props.filters.nowOpen
+                        })
+                    }}
+                >
                     Открыто сейчас
                 </span>
-                <span>
+                <span
+                    className={props.filters.allTimeOpen?classes.active:''}
+                    onClick={()=>{
+                        props.getShops({
+                            ...props.filters,
+                            allTimeOpen: !props.filters.allTimeOpen
+                        })
+                    }}
+                >
                     Круглосуточно
-                </span> 
-                <span>
-                    Указать время 
-                </span>               
+                </span>
             </div>
+            <Button className={classes.btn} onClick={()=>{
+                props.getShops({
+                    ...props.filters,
+                    radius: distance[1]
+                })
+            }}>Применить фильтры</Button>
         </div>
-        <div>
+        {/*<div>
             <span className={classes.titleBlock}>
                 Меры предосторожности
             </span>
@@ -47,8 +70,9 @@ const FilterItem = (props) =>{
                 </span>
                 
             </div>
-        </div>
+        </div>*/}
         </>
     )
 }
+
 export default FilterItem;

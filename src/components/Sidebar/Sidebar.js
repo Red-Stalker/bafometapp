@@ -44,18 +44,19 @@ const Sidebar = (props) =>{
                 setCoordsFunc={setCoordsFunc}
                 coords={coords}
                 getShops={props.getShops}
+                filters={props.filters}
             />
             <div className={onlySearch?classes.hide:''}>
-                <div
-                    onClick={()=>{setOpenFilter(!openFilter)}}
-                    className={classes.filters}
-                >
-                    <div className={classes.filtersIcoAndText}><img className={classes.fitersImg} src={fitlresIco} alt="fitlers"/><div className={classes.fitlersText}>Фильтры</div></div>
+                <div className={classes.filters}>
+                    <div onClick={()=>{setOpenFilter(!openFilter)}} className={classes.filtersIcoAndText}><img className={classes.fitersImg} src={fitlresIco} alt="fitlers"/><div className={classes.fitlersText}>Фильтры</div></div>
                     <div className={classes.countData}>Всего найдено 3965</div>
                 </div>
                 <div className={classes.content}>
                     {openFilter &&
-                        <Filter/>
+                        <Filter
+                            getShops={props.getShops}
+                            filters={props.filters}
+                        />
                     }
                     {openFindShop &&
                         <FindShop
@@ -79,7 +80,8 @@ const Sidebar = (props) =>{
 
 const mapStateToProps = (state) => ({
     shops: state.map.shops,
-    shop: state.map.shop
+    shop: state.map.shop,
+    filters: state.map.filters
 })
 
 export default connect(mapStateToProps,{getShops, setShop})(Sidebar);

@@ -4,12 +4,11 @@ import { Dropdown } from 'primereact/dropdown';
 import "./SelectedFilter.css"
 
 const SelectFilter = (props) =>{
-    const [selectedData, setSelectedData] = useState(null)
+    const [selectedData, setSelectedData] = useState(props.filters.sort)
 
     const data = [
-        {name: 'По цене', code: 'Price'}, 
-        {name: 'По растоянию', code: 'MM'}, 
-        {name: 'По популярности', code: 'MM'},
+        {name: 'По растоянию', code: 'distance'},
+        {name: 'По популярности', code: 'rating'},
     ];
 
     const countryTemplate = (option) => {
@@ -34,8 +33,16 @@ const SelectFilter = (props) =>{
 
     return(
         <div className={classes.inner}>
-            <Dropdown value={selectedData} options={data} placeholder="Сортировка" onChange={(e) => setSelectedData(e.value)} optionLabel="name"  filter className="multiselect-custom"
-                         itemTemplate={countryTemplate} selectedItemTemplate={selectedCountriesTemplate} />
+            <Dropdown value={selectedData}
+                      options={data} onChange={(e)=>{
+                            props.getShops({
+                                ...props.filters,
+                                sorf: e.value.code
+                            })
+                      }}
+                      optionLabel="name"
+                      placeholder="Сортировать"
+            />
         </div>
     )
 }

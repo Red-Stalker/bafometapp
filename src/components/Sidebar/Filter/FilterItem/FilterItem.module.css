@@ -28,5 +28,19 @@
     border-radius: 5px;
     padding: 5px;
     margin-top: 10px;
-    
+    cursor: pointer;
+}
+
+.btn{
+    margin-top: 10px;
+}
+
+.paddingBlock span:hover{
+    background-color: #eee;
+}
+
+.paddingBlock span.active{
+    background-color: #c1c1c1;
+    color: #fff;
+
 }

@@ -3,13 +3,19 @@ import {gisAPI} from "../api/api";
 const SET_COORDS = "SET_COORDS"
 const SET_SHOPS = "SET_COORDS"
 const SET_SHOP = "SET_SHOP"
-const SET_OPEN_INFO = "SET_SHOP"
+const SET_FILTERS = "SET_FILTERS"
 
 let initialState = {
     coords: [[60.6030454184265,56.83826863808909]],
     shops: [],
-    shop: null
-
+    shop: null,
+    filters: {
+        distance: 80,
+        nowOpen: false,
+        allTimeOpen: false,
+        sort: null,
+        q: null
+    }
 }
 
 const mapReducer = (state = initialState, action) => {
@@ -32,12 +38,20 @@ const mapReducer = (state = initialState, action) => {
                 coords: action.coords
             }
         }
+        case SET_FILTERS:{
+            return {
+                ...state,
+                filters: action.filters
+            }
+        }
         default:
             return state
     }
 }
 
 const setCoords = (coords) => ({type: SET_COORDS, coords})
+
+const setFilters = (filters) => ({type: SET_FILTERS, filters})
 
 const setShops = (shops) => ({type: SET_SHOPS, shops})
 
@@ -62,8 +76,8 @@ export const setShop = (shop) => (dispatch) =>{
         })
 }*/
 
-export const getShops = (q) => (dispatch) =>{
-    gisAPI.getShopsAround(q)
+export const getShops = (filters) => (dispatch) =>{
+    gisAPI.getShopsAround(filters)
         .then(response =>{
             if(response.data.status === true){
                 /*let coords=[];
@@ -72,6 +86,7 @@ export const getShops = (q) => (dispatch) =>{
                 })
                 dispatch(setCoords(coords))*/
                 dispatch(setShops(response.data.items))
+                dispatch(setFilters(filters))
             }
         })
 }

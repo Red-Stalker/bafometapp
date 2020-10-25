@@ -38,7 +38,6 @@
     flex-flow: row nowrap;
     margin-bottom: 15px;
     padding: 0px 10px;
-    cursor: pointer;
 }
 
 .filtersIcoAndText{
@@ -46,6 +45,7 @@
     justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
+    cursor: pointer;
 }
 
 .fitersImg{

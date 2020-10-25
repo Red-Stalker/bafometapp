@@ -15,10 +15,10 @@ const ModalContainer = (props) =>{
                 <div className={classes.tabViewInner}>
                     <TabView className={classes.tabView} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
                         <TabPanel header="Вход">
-                            <ModalLogIn/>
+                            <ModalLogIn closeModal={props.closeModal}/>
                         </TabPanel>
                         <TabPanel header="Регистрация">
-                            <ModalRegistration/>
+                            <ModalRegistration closeModal={props.closeModal}/>
                         </TabPanel>
                     </TabView>
                 </div>

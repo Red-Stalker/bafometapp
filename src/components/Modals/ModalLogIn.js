@@ -47,6 +47,9 @@ const ModalLogIn = (props) =>{
             props.login(values.email, values.password)
         }
     })
+    if(props.isAuth){
+        props.closeModal()
+    }
 
     return(
         <div className={classes.inner}>
