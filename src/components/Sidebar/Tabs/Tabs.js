@@ -18,7 +18,13 @@ const Tabs = (props) => {
                     <TabView>
                         <TabPanel header="Информация">
                             <div className={classes.address}>
-                            ​Репина, 94 Юго-Западный, Верх-Исетский район, Екатеринбург, 620043 2 этажа
+                                {props.shop == null?
+                                    <div>​Репина, 94
+                                        Юго-Западный, Верх-Исетский район, Екатеринбург, 620043
+                                        2 этажа
+                                    </div>:
+                                    props.shop.full_address_name
+                                }
                             </div>
                             <div className={classes.netAndNumber}>
                                 <div className={classes.number}>

@@ -3,11 +3,11 @@ import classes from "./InfoShop.module.css"
 import CardCompany from "../cardCompany/CardCompany";
 import Tabs from "../Tabs/Tabs";
 
-const InfoShop = () =>{
+const InfoShop = (props) =>{
     return(
         <div className={classes.inner}>
-            <CardCompany/>
-            <Tabs/>
+            <CardCompany shop={props.shop}/>
+            <Tabs shop={props.shop}/>
         </div>
     )
 }

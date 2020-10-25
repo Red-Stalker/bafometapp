@@ -58,7 +58,6 @@ export const registration = (email, name, password) => (dispatch) => {
 }
 
 export const registrationEmail = (email) => (dispatch) => {
-    debugger
     registrationAPI.validateEmail(email)
         .then(response2 =>{
             if(response2.data.status === true){

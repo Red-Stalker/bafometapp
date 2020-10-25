@@ -41,8 +41,17 @@ export const registrationAPI ={
 }
 
 export const gisAPI ={
-    getShopsAround(){
-        return instance().post(`v1/places/place/`, {})
+    getShopsAround(q, cords=[60.6030454184265,56.83826863808909]){
+        return instance().post(`v1/places/place/`, {cords,search_query:{q}})
+    },
+    getOnePlace(gis_id){
+        return instance().post(`v1/placesВ/get_one_place/`,{'2gis_id': gis_id})
+    },
+    addToFavourite(gis_id){
+        return instanceWithToken().post(`v1/places/add_to_favourite/`,{'2gis_id': gis_id})
+    },
+    getFavourite(){
+        return instanceWithToken().get(`v1/places/get_favourite/`)
     }
 }
 

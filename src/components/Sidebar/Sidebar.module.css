@@ -4,6 +4,10 @@
   }
 }
 
+.hide{
+    display: none;
+}
+
 .Sidebar{
     padding: 0 15px;
     padding-top: 40px;

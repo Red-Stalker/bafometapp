@@ -8,9 +8,16 @@ const FindShop = (props) =>{
         <div className={classes.inner}>
             <SelectShop/>
             <div className={classes.items}>
-                <ShopItem/>
-                <ShopItem/>
-                <ShopItem/>
+                {props.shops.map(shop =>{
+                        return(
+                            <ShopItem
+                                shop={shop}
+                                selectShop={props.selectShop}
+                                setShop={props.setShop}
+                            />
+                        )
+                    })
+                }
             </div>
         </div>
     )

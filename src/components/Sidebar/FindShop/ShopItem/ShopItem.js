@@ -6,20 +6,24 @@ import img from './Ellipse 7.png'
 
 const ShopItem = (props) =>{
     return(
-        <div className={classes.inner}>
+        <div
+            onClick={()=>{
+                props.selectShop(props.shop)
+            }}
+            className={classes.inner}
+        >
             <div className={classes.row1}>
                 <div className={classes.column}>
                     <div className={classes.row}>
-                        <div className={classes.title}>Окей</div>
-                        <div className={classes.position}>в 500 метрах</div>
+                        <div className={classes.title}>{props.shop.name}</div>
                     </div>
-                        <div className={classes.row}><div className={classes.type}>Гипермаркет</div><div className={classes.rub}>₽</div></div>
+                        <div className={classes.row}><div className={classes.type}>{props.shop.rubrics[0].name}</div><div className={classes.rub}>₽</div></div>
                 </div>
                 <div>
-                    <div className={classes.time}>Ежедневно с 10:00 до 22:00</div>
+                    <div className={classes.time}>Ежедневно с {props.shop.schedule.Fri.working_hours[0].from} до {props.shop.schedule.Fri.working_hours[0].to}</div>
                     <div className={classes.timeState}>Открыто</div>
                 </div>
-                <div className={classes.adress }>Радуга Парк, Репина, 94, Екатеринбург</div>
+                <div className={classes.adress }>{props.shop.full_address_name}</div>
             </div>
             <div className={classes.row2}>
                 <img className={classes.img} src={img} alt="logo"/>

@@ -12,15 +12,27 @@ import ModalContainer from "./components/Modals/ModalContainer";
 import {connect} from "react-redux";
 import {MapContext} from "./components/Map/MapProvider";
 import {getAuthUserData} from "./redux/auth-reducer";
+import Search from "./components/Sidebar/Search/Search";
+import SidebarFav from "./components/Sidebar/SidebarFav";
 
 const App = (props) => {
+    const [coords, setCoords] = useState([null,null])
+
     const [mapInstance] = React.useContext(MapContext);
     const [openSideBar, setOpenSideBar] = useState(false)
     const [hideSideBar, setHideSideBar] = useState(false)
     const [openModal, setOpenModal] = useState(false)
 
+    const [openSideBarFav, setOpenSideBarFav] = useState(false)
+
     useEffect(()=>{
         props.getAuthUserData()
+        /*if (!navigator.geolocation && !mapInstance) {
+            alert("Браузер не поддерживает геолокацию")
+        } else {
+            navigator.geolocation.getCurrentPosition((pos)=> setCoords([pos.coords.longitude, pos.coords.latitude]), mapInstance.error);
+        }
+        console.log(coords)*/
     },[])
 
     const closeModal = () =>{
@@ -49,6 +61,26 @@ const App = (props) => {
               </div>
           </div>
 
+          <div className={`${classes.sidebarInnerFav} ${openSideBarFav?classes.active:''} ${hideSideBar?classes.hide:''}`}>
+              <div className={classes.content}>
+                  <SidebarFav/>
+                  <div className={classes.btnSidebarClose} onClick={()=>{
+                      setOpenSideBarFav(false)
+                      setHideSideBar(false)
+                  }}><i className="pi pi-times"></i></div>
+                  <div className={`${classes.btnSidebarHide} ${hideSideBar ? classes.active: ''}`} onClick={()=>{
+                      if(hideSideBar){
+                          setHideSideBar(false)
+                      }else{
+                          setHideSideBar(true)
+                      }
+                  }}><i className="pi pi-angle-down"></i></div>
+                  {/*<div className={classes.btnSidebarClose} onClick={()=>{
+                      setHideSideBar(true)
+                  }}><i className="pi pi-angle-up"></i></div>*/}
+              </div>
+          </div>
+
           {!openSideBar &&
               <div onClick={()=>{
                   setOpenSideBar(true)
@@ -60,10 +92,12 @@ const App = (props) => {
           }
 
           {props.isAuth &&
-          <div onClick={()=>{setOpenModal(true)}} className={classes.privateOffice}>
-              <span>Личный кабинет</span>
+          <div className={classes.privateOffice}>
+              <span onClick={()=>{setOpenModal(true)}} >Личный кабинет</span>
               <div className={classes.dropDown}>
-                  <span>Избранное</span>
+                  <span onClick={()=>{
+                      setOpenSideBarFav(true)
+                  }}>Избранное</span>
                   <span>Выход</span>
               </div>
           </div>

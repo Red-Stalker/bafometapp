@@ -3,6 +3,8 @@ import classes from "./MapContainer.module.css";
 import {load} from "@2gis/mapgl";
 import {MapContext} from "./MapProvider";
 import "./MapContainer.css"
+import {connect} from "react-redux";
+import {setCoords, setShop} from "../../redux/map-reducer";
 
 const MapWrapper = React.memo(
     () => {
@@ -30,7 +32,7 @@ const controlContent = `
                 <p id="status"></p>
             `;
 
-const MapGL = () =>{
+const MapGL = (props) =>{
     const [_, setMapInstance] = useContext(MapContext);;
     useEffect(()=>{
         let map;
@@ -48,6 +50,25 @@ const MapGL = () =>{
             const trafficControl = new mapglAPI.TrafficControl(map, {
                 position: 'topRight',
             });
+
+            /*props.coords.forEach((coord) => {
+                const marker = new mapglAPI.Marker(map,{
+                    coordinates: coord
+                })
+            })*/
+
+            props.shops.forEach((shop) => {
+                const marker = new mapglAPI.Marker(map,{
+                    coordinates: [shop.point.lon, shop.point.lat],
+                    icon: 'https://docs.2gis.com/img/mapgl/marker.svg',
+                    label: {
+                        text: shop.name,
+                    },
+                })
+                marker.on('click', (e) => {
+                    props.setShop(shop)
+                })
+            })
 
             const status = control.getContainer().querySelector('#status');
             let circle;
@@ -96,7 +117,7 @@ const MapGL = () =>{
 
         // Destroy the map, if Map component is going to be unmounted
         return () => map.destroy();
-    }, [])
+    }, [props.shops])
 
     return(
         <div style={{ width: '100%', height: '100%' }}>
@@ -105,4 +126,9 @@ const MapGL = () =>{
     )
 }
 
-export default MapGL;
+const mapStateToProps = (state) => ({
+    coords: state.map.coords,
+    shops: state.map.shops
+})
+
+export default connect(mapStateToProps,{setShop})(MapGL);
