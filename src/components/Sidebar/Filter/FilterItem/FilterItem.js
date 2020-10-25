@@ -11,7 +11,7 @@ const FilterItem = (props) =>{
                 Расстояние до меня
             </span>
             <div style={{marginBottom:10, paddingTop:10}}>
-            <Slider value={value4} onChange={(e) => setValue4(e.value)} range />
+            <Slider value={value4} onChange={(e) => setValue4(e.value)} range className={classes.rangeSlider}/>
             <div className={classes.titleBlockRange}> Расстояние: [{value4[0]}, {value4[1]}]</div>
             </div>
         </div>

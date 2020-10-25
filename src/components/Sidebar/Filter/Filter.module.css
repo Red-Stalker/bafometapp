@@ -1,3 +1,9 @@
+@media (max-width: 767px) {
+    .inner{
+        display: block !important;
+    }
+  }
+
 .inner{
     background: #FFFFFF;
     border-radius: 21px;
