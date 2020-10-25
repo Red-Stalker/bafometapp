@@ -56,23 +56,23 @@ const Tabs = (props) => {
                                 </div>
                                 </div>
                                 <div>
-                                <span className={classes.titleBlock}>
-                                    Меры предосторожности
-                                </span>
-                                <div className={classes.paddingBlock}>
-                                    <span>
+                                    <span className={classes.titleBlock}>
+                                        Меры предосторожности
+                                    </span>
+                                    <div className={classes.paddingBlock}>
+                                        <span>
+                                            Сотрудники в масках и перчатках 
+                                        </span>
+                                        <span>
+                                            Есть антисептики
+                                        </span>
+                                        <span>
+                                        Ограничение по количеству посетителей 
+                                        </span>
+                                        <span>
                                         Сотрудники в масках и перчатках 
-                                    </span>
-                                    <span>
-                                        Есть антисептики
-                                    </span>
-                                    <span>
-                                    Ограничение по количеству посетителей 
-                                    </span>
-                                    <span>
-                                    Сотрудники в масках и перчатках 
-                                    </span>
-                                </div>
+                                        </span>
+                                    </div>
                                 </div>
                                 <div>
                                 <span className={classes.titleBlock}>
