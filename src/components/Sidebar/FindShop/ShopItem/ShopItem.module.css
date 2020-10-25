@@ -1,3 +1,10 @@
+@media (max-width: 767px) {
+    .content{
+        display: block !important;
+        width: 400px; 
+    }
+  }
+
 .inner{
     display: flex;
     justify-content: space-between;

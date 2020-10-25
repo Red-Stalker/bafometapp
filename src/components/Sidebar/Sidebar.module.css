@@ -1,8 +1,10 @@
 @media (max-width: 767px) {
   .content{
       display: block !important;
-      width: 400px;
+      width: 400px; 
+      background-color: #fff;
   }
+  
 }
 
 .Sidebar{
