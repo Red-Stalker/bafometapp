@@ -16,7 +16,6 @@ import {gisAPI} from "../../api/api";
 
 const Sidebar = (props) =>{
     useEffect(()=>{
-        props.getFavShops()
     },[])
 
     const [openFilter, setOpenFilter] = useState(false)

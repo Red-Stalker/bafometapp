@@ -14,6 +14,7 @@ import {MapContext} from "./components/Map/MapProvider";
 import {getAuthUserData} from "./redux/auth-reducer";
 import Search from "./components/Sidebar/Search/Search";
 import SidebarFav from "./components/Sidebar/SidebarFav";
+import {getFavShops} from "./redux/map-reducer";
 
 const App = (props) => {
     const [coords, setCoords] = useState([null,null])
@@ -96,6 +97,7 @@ const App = (props) => {
               <span onClick={()=>{setOpenModal(true)}} >Личный кабинет</span>
               <div className={classes.dropDown}>
                   <span onClick={()=>{
+                      props.getFavShops()
                       setOpenSideBarFav(true)
                   }}>Избранное</span>
                   <span>Выход</span>
@@ -107,13 +109,13 @@ const App = (props) => {
               <MapGL />
           </div>
 
-          <div onClick={()=>{
+          {/*<div onClick={()=>{
               if (!navigator.geolocation) {
                   alert("Нету координат")
               } else {
                   navigator.geolocation.getCurrentPosition((pos)=> alert(`${pos.coords.longitude} ${pos.coords.latitude}`), mapInstance.error);
               }
-          }} className={classes.coordsMe}>Координаты мои</div>
+          }} className={classes.coordsMe}>Координаты мои</div>*/}
 
           {openModal &&
             <ModalContainer closeModal={closeModal}/>
@@ -126,4 +128,4 @@ const mapStateToProps = (state) =>({
     isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps,{getAuthUserData})(App);
+export default connect(mapStateToProps,{getAuthUserData, getFavShops})(App);
